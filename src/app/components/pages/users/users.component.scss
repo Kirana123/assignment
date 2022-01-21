@@ -1,0 +1,48 @@
+@mixin for-phone-only {
+  @media (min-width: 320px) and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin for-tablet-only {
+  @media (min-width: 768px) and (max-width: 1199px) {
+    @content;
+  }
+}
+@mixin for-minilaptop-and-up {
+  @media (min-width: 1200px) and (max-width: 5000px) {
+    @content;
+  }
+}
+table {
+  width: 95%;
+  margin-left: 2%;
+}
+.example-form-field{
+  width: 100%;
+}
+.Tabdata{
+  display: flex;
+  padding: 2rem;
+  padding-left: 2rem;
+  padding-right: 4rem;
+  color: #000;
+  align-items: center;
+}
+::ng-deep{
+  .mat-tab-label {
+    font-size: 20px !important;
+  }
+}
+.page-content{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.page-content::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 25px;
+}
+.page-content::-webkit-scrollbar-thumb {
+  background: #bfc0c2;
+  border-radius: 3px;
+}
+

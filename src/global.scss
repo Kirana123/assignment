@@ -1,0 +1,75 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@mixin for-phone-only {
+    @media (min-width: 320px) and (max-width: 767px) { @content; }
+}
+@mixin for-tablet-only {
+    @media (min-width: 768px) and (max-width: 1199px) { @content; }
+}
+@mixin for-minilaptop-and-up {
+    @media (min-width: 1200px) and (max-width: 5000px) { @content; }
+}
+
+body {
+    font-family: Nunito !important;
+}
+
+$text-primary: #7fdd85;
+$text-info: #3dc2ff;
+$text-warning: #fad35f;
+$text-danger: #f25767;
+$text-darkgray: #acaeaf;
+$text-pink: #ef9fc4;
+$text-blue: #1967d2;
+$text-orange: #ffba39;
+$text-lightgray: #f3f3f3;
+$text-black: #000;
+$text-white: #fff;
+$text-darkgreen:#006400;
+
+#main {
+    margin-left: 300px;
+    padding: 2rem;
+    height: 100vh;
+    overflow: auto;
+}
+.card { 
+    box-shadow: rgb(149 157 165 / 25%) 0px 8px 24px; 
+}
+::ng-deep{
+    .mat-card { 
+        box-shadow: rgb(149 157 165 / 25%) 0px 8px 24px !important; 
+    }
+}
+#main #main-content {
+    padding: 2rem;
+    margin-top: -50px !important;
+    @include for-phone-only() {
+        margin-top: -74px !important;
+    }
+}

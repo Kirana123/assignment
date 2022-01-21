@@ -1,0 +1,126 @@
+<div class="page-content">
+  <div class="row mt-3">
+    <div class="col-3 page-heading mt-4">
+      <h2 class="px-4">List Breweries</h2>
+    </div>
+    <div class="col-2 mt-1">
+      <mat-form-field class="example-form-field" appearance="outline">
+        <mat-label>Search by City</mat-label>
+        <input matInput type="text" [(ngModel)]="searchValue"
+        (keyup)="getSearchbyCity(searchValue)" autocomplete="off">
+        <button
+        *ngIf="searchValue"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="OncancelSearch(); searchValue = ''"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+      </mat-form-field>
+    </div>
+    <div class="col-2 mt-1">
+      <mat-form-field class="example-form-field" appearance="outline">
+        <mat-label>Search by Name</mat-label>
+        <input matInput type="text" [(ngModel)]="search"
+        (keyup)="getSearchbyname(search)" autocomplete="off">
+        <button
+        *ngIf="search"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="Oncancel(); search = ''"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+      </mat-form-field>
+    </div>
+    <div class="col-2 mt-1 px-1">
+      <mat-form-field class="example-form-field" appearance="outline">
+        <mat-label>Search by State</mat-label>
+        <input matInput type="text" [(ngModel)]="Value"
+        (keyup)="getSearchbyState(Value)" autocomplete="off">
+        <button
+        *ngIf="Value"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="cancelSearch(); Value = ''"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+      </mat-form-field>
+    </div>
+    <div class="col-1 mt-1 px-1">
+      <button matTooltip="Refresh"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="refresh(); Value = '';search = '';searchValue = ''"
+      >
+        <mat-icon style="margin-top: 18px;font-size: 2rem;">refresh</mat-icon>
+      </button>
+    </div>
+     <div class="col-1 mt-1 px-1">
+      <button mat-icon-button matTooltip="Sort By Ascending Order" (click)="OngetSortbysortasc()">
+        <mat-icon style="margin-top: 18px;font-size: 2rem;" class="material-icons-outlined">south</mat-icon>
+      </button>
+    </div>
+    <div class="col-1 mt-1 px-1">
+      <button mat-icon-button matTooltip="Sort By Descending Order" (click)="OngetSortbysortdesc()">
+        <mat-icon style="margin-top: 18px;font-size: 2rem;" class="material-icons-outlined">north</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table #tableOneSort="matSort" matSort mat-table [dataSource]="dataSource" class="text-center table-hover">
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell id="name" *matHeaderCellDef class="text-center"><h6>ID</h6> </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+        <th mat-header-cell id="service" *matHeaderCellDef class="text-center"> <h6>Name</h6> </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="street">
+        <th mat-header-cell id="service" *matHeaderCellDef class="text-center"> <h6>Street</h6> </th>
+        <td mat-cell *matCellDef="let element"> {{element.street}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell id="service" *matHeaderCellDef class="text-center"> <h6>Phone</h6> </th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="city">
+        <th mat-header-cell id="email" *matHeaderCellDef class="text-center"> <h6>City</h6> </th>
+        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="state">
+        <th mat-header-cell id="email" *matHeaderCellDef class="text-center"> <h6>State</h6> </th>
+        <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="country">
+        <th mat-header-cell id="appln" *matHeaderCellDef class="text-center"><h6>Country</h6> </th>
+        <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="postal_code">
+        <th mat-header-cell id="role" *matHeaderCellDef class="text-center"> <h6>postal_code</h6> </th>
+        <td mat-cell *matCellDef="let element"> {{element.postal_code}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+
+</div>
